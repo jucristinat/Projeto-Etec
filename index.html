@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETEC - Atendimento ao Aluno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container topo-inner">
+      <span class="logo">ETEC</span>
+      <nav class="menu">
+        <button data-pagina="inicio" class="ativo">Início</button>
+        <button data-pagina="aulas">Aulas</button>
+        <button data-pagina="faltas">Faltas</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PÁGINA INÍCIO -->
+    <section id="inicio" class="pagina ativa">
+      <h1>Atendimento ao Aluno</h1>
+      <p class="sub">Identifique-se para acessar a plataforma.</p>
+
+      <div class="card">
+        <h2>👤 Identificação do aluno</h2>
+        <form id="formAluno" novalidate>
+          <div class="grid">
+            <label class="full">Nome completo<input id="nome"></label>
+            <label>RM<input id="rm" inputmode="numeric"></label>
+            <label>Curso<input id="curso"></label>
+            <label>Série
+              <select id="serie">
+                <option value="">Selecione</option>
+                <option value="1º ano">1º ano do Ensino Médio</option>
+                <option value="2º ano">2º ano do Ensino Médio</option>
+                <option value="3º ano">3º ano do Ensino Médio</option>
+              </select>
+            </label>
+            <label>Turma
+              <select id="turma">
+                <option value="">Selecione</option>
+                <option value="A">Turma A</option>
+                <option value="B">Turma B</option>
+              </select>
+            </label>
+            <label>Ano de início<input id="inicioAno" type="number"></label>
+            <label>Ano de conclusão<input id="conclusaoAno" type="number"></label>
+          </div>
+          <p class="msg" id="msgAluno"></p>
+          <button class="btn" type="submit">Confirmar cadastro</button>
+        </form>
+      </div>
+
+      <div class="card perfil" id="perfil" hidden></div>
+
+      <div class="card">
+        <h2>📝 Reclamações e solicitações</h2>
+        <form id="formRecl" novalidate>
+          <div class="grid">
+            <label>Assunto<input id="assunto"></label>
+            <label>Categoria
+              <select id="categoria">
+                <option value="">Selecione</option>
+                <option>Infraestrutura</option>
+                <option>Professores</option>
+                <option>Atendimento</option>
+                <option>Organização escolar</option>
+                <option>Problemas acadêmicos</option>
+                <option>Outros</option>
+              </select>
+            </label>
+            <label class="full">Descrição<textarea id="descricao" rows="5"></textarea></label>
+          </div>
+          <p class="msg" id="msgRecl"></p>
+          <button class="btn" type="submit">Enviar solicitação</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>📂 Manifestações registradas</h2>
+        <ul id="listaRecl" class="lista"></ul>
+      </div>
+    </section>
+
+    <!-- PÁGINA AULAS -->
+    <section id="aulas" class="pagina">
+      <h1>Aulas</h1>
+      <p class="sub">Grade semanal de aulas.</p>
+      <div class="card tabela-wrap">
+        <table>
+          <thead><tr><th>Dia</th><th>07:30</th><th>09:40</th><th>13:30</th></tr></thead>
+          <tbody id="gradeAulas"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PÁGINA FALTAS -->
+    <section id="faltas" class="pagina">
+      <h1>Faltas</h1>
+      <p class="sub">Quantidade de faltas por disciplina.</p>
+      <div class="faltas-grid" id="listaFaltas"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">ETEC © Sistema de Atendimento ao Aluno</footer>
+  <script src="script.js"></script>
+</body>
+</html>

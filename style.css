@@ -1,0 +1,85 @@
+/* ===== Identidade visual ===== */
+:root {
+  --vermelho: #b3121b;
+  --vermelho-escuro: #8a0d14;
+  --vermelho-claro: #fdecee;
+  --branco: #ffffff;
+  --fundo: #f7f7f8;
+  --texto: #222;
+  --cinza: #6b6b6b;
+  --borda: #e3e3e3;
+  --sucesso: #1d7a3a;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", system-ui, sans-serif; background: var(--fundo); color: var(--texto); min-height: 100vh; display: flex; flex-direction: column; }
+.container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 16px; }
+
+/* ===== Topo / menu ===== */
+.topo { background: var(--vermelho); color: var(--branco); box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.topo-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; }
+.logo { font-size: 1.7rem; font-weight: 900; letter-spacing: 4px; }
+.menu { display: flex; gap: 4px; }
+.menu button { background: none; border: 0; color: var(--branco); padding: 8px 14px; border-radius: 6px; font-size: .95rem; cursor: pointer; }
+.menu button:hover, .menu button.ativo { background: rgba(255,255,255,.2); }
+
+main { flex: 1; padding-top: 32px; padding-bottom: 32px; }
+h1 { color: var(--vermelho); font-size: 1.9rem; }
+h2 { font-size: 1.15rem; margin-bottom: 16px; }
+.sub { color: var(--cinza); margin: 4px 0 20px; }
+
+/* ===== Páginas ===== */
+.pagina { display: none; animation: aparecer .3s ease; }
+.pagina.ativa { display: block; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+
+/* ===== Cartões e formulários ===== */
+.card { background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.full { grid-column: 1 / -1; }
+label { display: flex; flex-direction: column; font-size: .9rem; font-weight: 600; gap: 6px; }
+input, select, textarea { font: inherit; font-weight: 400; padding: 10px 12px; border: 1px solid var(--borda); border-radius: 8px; background: var(--branco); }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--vermelho); border-color: transparent; }
+.erro { border-color: var(--vermelho); background: var(--vermelho-claro); }
+textarea { resize: vertical; }
+
+.btn { margin-top: 6px; background: var(--vermelho); color: var(--branco); border: 0; padding: 11px 22px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: background .2s; }
+.btn:hover { background: var(--vermelho-escuro); }
+.msg { min-height: 1.2em; margin: 12px 0 4px; font-size: .9rem; font-weight: 600; }
+.msg.ok { color: var(--sucesso); }
+.msg.falha { color: var(--vermelho); }
+
+/* ===== Perfil ===== */
+.perfil { border-left: 5px solid var(--vermelho); }
+.perfil-dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.perfil-dados div { background: var(--fundo); padding: 10px 12px; border-radius: 8px; }
+.perfil-dados span { display: block; font-size: .75rem; color: var(--cinza); text-transform: uppercase; }
+
+/* ===== Lista de manifestações ===== */
+.lista { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.lista li { border: 1px solid var(--borda); border-radius: 8px; padding: 12px 14px; }
+.lista .tag { display: inline-block; background: var(--vermelho-claro); color: var(--vermelho); font-size: .75rem; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
+.lista small { color: var(--cinza); display: block; margin-top: 4px; }
+.vazio { color: var(--cinza); }
+
+/* ===== Aulas ===== */
+.tabela-wrap { overflow-x: auto; padding: 0; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--borda); }
+th { background: var(--vermelho); color: var(--branco); }
+td:first-child { font-weight: 700; }
+
+/* ===== Faltas ===== */
+.faltas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.falta { background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio); padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+.falta strong { font-size: 1.6rem; color: var(--vermelho); }
+
+.rodape { text-align: center; padding: 18px; color: var(--cinza); font-size: .85rem; }
+
+/* ===== Responsividade ===== */
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .topo-inner { flex-direction: column; gap: 8px; }
+  h1 { font-size: 1.5rem; }
+}
